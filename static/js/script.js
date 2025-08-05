@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'step2': 'Évaluation des priorités de sécurité...',
             'step3': 'Comparaison de la pile technologique...',
             'step4': 'Vérification des exigences de conformité...',
-            'step5': 'Calcul de l'alignement budgétaire...',
+            'step5': 'Calcul de l\'alignement budgétaire...',
             'step6': 'Examen des capacités du fournisseur...',
             'step7': 'Finalisation de la recommandation...',
-            'error': 'Une erreur s'est produite lors du traitement de votre demande.'
+            'error': 'Une erreur s\'est produite lors du traitement de votre demande.'
         }
     };
 

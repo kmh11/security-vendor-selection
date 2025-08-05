@@ -239,6 +239,8 @@ msgid ""
 "Based on your project requirements and security needs, we recommend this "
 "vendor for your security assessment."
 msgstr ""
+"Basado en los requisitos de su proyecto y necesidades de seguridad, "
+"recomendamos este proveedor para su evaluación de seguridad."
 
 #: templates/index.html:252
 msgid "Start New Analysis"
