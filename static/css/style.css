@@ -22,6 +22,28 @@ header {
     text-align: center;
     margin-bottom: 40px;
     color: white;
+    position: relative;
+}
+
+.language-selector {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.language-selector select {
+    background: white;
+    color: #333;
+    border: 2px solid #667eea;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.language-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
 header h1 {
