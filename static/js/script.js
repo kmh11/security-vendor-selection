@@ -20,6 +20,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const sensitivitySlider = document.getElementById('data-sensitivity');
     const sensitivityValue = document.getElementById('sensitivity-value');
 
+    // Translation dictionary for dynamic content
+    const translations = {
+        'en': {
+            'step1': 'Analyzing project requirements...',
+            'step2': 'Evaluating security priorities...',
+            'step3': 'Matching technology stack...',
+            'step4': 'Checking compliance requirements...',
+            'step5': 'Calculating budget alignment...',
+            'step6': 'Reviewing vendor capabilities...',
+            'step7': 'Finalizing recommendation...',
+            'error': 'An error occurred while processing your request.'
+        },
+        'es': {
+            'step1': 'Analizando requisitos del proyecto...',
+            'step2': 'Evaluando prioridades de seguridad...',
+            'step3': 'Comparando pila tecnológica...',
+            'step4': 'Verificando requisitos de cumplimiento...',
+            'step5': 'Calculando alineación presupuestaria...',
+            'step6': 'Revisando capacidades del proveedor...',
+            'step7': 'Finalizando recomendación...',
+            'error': 'Ocurrió un error al procesar su solicitud.'
+        },
+        'fr': {
+            'step1': 'Analyse des exigences du projet...',
+            'step2': 'Évaluation des priorités de sécurité...',
+            'step3': 'Comparaison de la pile technologique...',
+            'step4': 'Vérification des exigences de conformité...',
+            'step5': 'Calcul de l\'alignement budgétaire...',
+            'step6': 'Examen des capacités du fournisseur...',
+            'step7': 'Finalisation de la recommandation...',
+            'error': 'Une erreur s\'est produite lors du traitement de votre demande.'
+        }
+    };
+
+    // Get current language from data attribute
+    function getCurrentLanguage() {
+        const languageSelect = document.getElementById('language-select');
+        return languageSelect ? languageSelect.value : 'en';
+    }
+
     prioritySlider.addEventListener('input', function() {
         priorityValue.textContent = this.value;
     });
@@ -74,7 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while processing your request.');
+            const currentLang = getCurrentLanguage();
+            alert(translations[currentLang]['error']);
             form.style.display = 'block';
             progressContainer.style.display = 'none';
         });
@@ -95,15 +136,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function simulateProgress() {
         const progressFill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
+        const currentLang = getCurrentLanguage();
         
         const steps = [
-            { percent: 10, text: 'Analyzing project requirements...' },
-            { percent: 25, text: 'Evaluating security priorities...' },
-            { percent: 40, text: 'Matching technology stack...' },
-            { percent: 55, text: 'Checking compliance requirements...' },
-            { percent: 70, text: 'Calculating budget alignment...' },
-            { percent: 85, text: 'Reviewing vendor capabilities...' },
-            { percent: 100, text: 'Finalizing recommendation...' }
+            { percent: 10, text: translations[currentLang]['step1'] },
+            { percent: 25, text: translations[currentLang]['step2'] },
+            { percent: 40, text: translations[currentLang]['step3'] },
+            { percent: 55, text: translations[currentLang]['step4'] },
+            { percent: 70, text: translations[currentLang]['step5'] },
+            { percent: 85, text: translations[currentLang]['step6'] },
+            { percent: 100, text: translations[currentLang]['step7'] }
         ];
         
         let currentStep = 0;
@@ -123,3 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProgress();
     }
 });
+
+// Language switching function
+function changeLanguage(lang) {
+    window.location.href = '/set_language/' + lang;
+}
